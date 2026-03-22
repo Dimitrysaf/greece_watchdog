@@ -1,0 +1,23 @@
+{
+  "name": "paratiritrio-elladas",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxtjs/supabase": "^1.3.5",
+    "nuxt": "^3.11.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "typescript": "^5.4.0"
+  }
+}

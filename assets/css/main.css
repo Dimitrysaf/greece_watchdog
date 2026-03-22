@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  --navy:        #0d1f33;
+  --navy-mid:    #132840;
+  --navy-light:  #1e3a55;
+  --blue:        #2e6da4;
+  --blue-light:  #3d87c8;
+  --ice:         #e8f0f7;
+  --ice-dark:    #d0e0ef;
+
+  --red:         #c0392b;
+  --red-glow:    rgba(192, 57, 43, 0.15);
+  --orange:      #e67e22;
+  --orange-glow: rgba(230, 126, 34, 0.15);
+  --green:       #27ae60;
+  --green-glow:  rgba(39, 174, 96, 0.15);
+
+  --text-primary:   #f0f4f8;
+  --text-secondary: #94a8bc;
+  --text-muted:     #5c7a96;
+
+  --border:      rgba(46, 109, 164, 0.25);
+  --border-mid:  rgba(46, 109, 164, 0.45);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Literata', serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+/* ── Noise texture overlay ────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ── Utility classes ──────────────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid-dots {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Animations ───────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
+  50%       { box-shadow: 0 0 0 6px transparent; }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
