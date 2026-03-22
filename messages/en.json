@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "title": "Greece Observatory",
+    "description": "Independent recording of institutional deviations in Greece."
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "submit": "Submit Report",
+    "login": "Login"
+  }
+}
