@@ -1,12 +1,15 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase', 'vue-fomantic-ui/nuxt'],
-  app: {
-    head: {
-      link: [
-        { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css' }
-      ]
-    }
-  }
+  modules: ['@nuxtjs/supabase', '@nuxtjs/i18n'],
+  // @ts-ignore
+  i18n: {
+    locales: [
+      { code: 'el', file: 'el.json' },
+      { code: 'en', file: 'en.json' }
+    ],
+    defaultLocale: 'el'
+  },
+  supabase: {
+    redirect: false
+  },
+  compatibilityDate: '2026-03-22'
 })
-
-

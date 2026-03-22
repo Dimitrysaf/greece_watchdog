@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "submit": "Submit Report",
+    "login": "Login"
+  },
+  "error": {
+    "404_title": "404",
+    "404_subtitle": "Sorry, the page you visited does not exist.",
+    "500_subtitle": "Sorry, the server is wrong.",
+    "403_subtitle": "Sorry, you are not authorized to access this page.",
+    "warning_title": "There are some problems with your operation.",
+    "back_home": "Back Home"
+  }
+}
