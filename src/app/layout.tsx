@@ -1,33 +1,24 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { NextIntlClientProvider } from "next-intl"
-import { getLocale, getMessages, getTranslations } from "next-intl/server"
+import { ThemeProvider } from "@/components/ThemeProvider"
+import AppMenu from "@/components/AppMenu"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin", "greek"] })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('metadata')
-  return {
-    title: t('title'),
-    description: t('description'),
-  }
+export const metadata: Metadata = {
+  title: "Παρατηρητήριο Ελλάδας",
+  description: "Ανεξάρτητη καταγραφή θεσμικών αποκλίσεων στην Ελλάδα.",
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const locale = await getLocale()
-  const messages = await getMessages()
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={locale}>
+    <html suppressHydrationWarning>
       <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>
+        <ThemeProvider>
+          <AppMenu />
           {children}
-        </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
