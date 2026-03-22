@@ -1,11 +1,20 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  css: ['~/assets/css/tailwind.css'],
-  devtools: { enabled: true },
+  modules: ['@nuxtjs/supabase', '@nuxtjs/i18n'],
+  // @ts-ignore
+  supabase: { redirect: false },
+  // @ts-ignore
+  i18n: {
+    locales: [
+      { code: 'el', file: 'el.json' },
+      { code: 'en', file: 'en.json' }
+    ],
+    defaultLocale: 'el',
+  },
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  css: ['~/assets/css/tailwind.css'],
+  compatibilityDate: '2026-03-22'
 })
